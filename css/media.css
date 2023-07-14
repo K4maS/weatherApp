@@ -1,0 +1,32 @@
+@media (max-width: 1195px) {
+    .aside {}
+
+    .weather-today__search-activate-block {
+        padding-left: 23px;
+      }
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aside {
+        height: unset;
+        width: 315px;
+    }
+
+    .weather-today__search-activate-block {
+        padding-left: 0;
+    }
+
+    .weather {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 500px) {
+   
+
+}
