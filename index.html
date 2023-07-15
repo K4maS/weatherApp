@@ -37,56 +37,250 @@
 
     <main class="main">
         <aside class="aside">
-            <div class="weather-today">
-                <div class="weather-today__search-block weather-search-block">
-                    <button class="btn btn-reset weather-today__close-btn weather-search-block-close-btn">
+            <!-- WEATHER TODAY BEGIN -->
+            <div class="weather-aside">
+                <div class="weather-aside__search-block weather-search-block">
+                    <button class="btn btn-reset weather-aside__close-btn weather-search-block-close-btn">
                         <svg>
                             <use xlink:href="#cross"></use>
                         </svg>
                     </button>
-                    <input type="search" class="input weather-today__search-input">
-                    <button class="btn btn-reset weather-today__search-btn">
+                    <input type="search" placeholder="Найти город" class="input weather-aside__search-input">
+                    <button class="btn btn-reset weather-aside__search-btn">
                         Найти
                     </button>
                 </div>
-                <div class="weather-today__search-activate-block">
-                    <button class="btn btn-reset weather-today__search-btn  weather-search-activate-btn">
+                <div class="weather-aside__search-activate-block">
+                    <button class="btn btn-reset weather-aside__search-btn  weather-search-activate-btn">
                         Поиск города
                     </button>
                 </div>
-                <img src="./img/snowflake.webp" alt="" class="weather-today__img">
-                <div class="weather-today__main-block">
+                <img src="./img/snowflake.webp" alt="" class="weather-aside__img">
+                <div class="weather-aside__main-block">
 
-                    <div class="weather-today__state">
-                        <p class="weather-today__degrees">
-                            1<span class="weather-today__degree-symbol"><span>°</span>C</span>
+                    <div class="weather-aside__state">
+                        <p class="weather-aside__degrees">
+                            1<span class="weather-aside__degree-symbol"><span>°</span>C</span>
                         </p>
-                        <p class="weather-today__degrees-subtext-1">
+                        <p class="weather-aside__degrees-subtext-1">
                             Снег
                         </p>
-                        <p class="weather-today__degrees-subtext-2 weather-today__gray-text ">
+                        <p class="weather-aside__degrees-subtext-2 weather-aside__gray-text ">
                             Ощущается как -3 °C
                         </p>
                     </div>
-                    <div class="weather-today__bottom">
-                        <div class="weather-today__date">
-                            <span class="weather-today__today-text weather-today__gray-text">Сегодня</span>
-                            <span class="weather-today__today-date weather-today__gray-text">Вс, 13 мар</span>
+                    <div class="weather-aside__bottom">
+                        <div class="weather-aside__date">
+                            <span class="weather-aside__aside-text weather-aside__gray-text">Сегодня</span>
+                            <span class="weather-aside__aside-date weather-aside__gray-text">Вс, 13 мар</span>
                         </div>
                     </div>
-                    <div class="weather-today__location">
-                        <svg class="weather-today__baloon">
+                    <div class="weather-aside__location">
+                        <svg class="weather-aside__baloon">
                             <use xlink:href="#baloon"> </use>
                         </svg>
-                        <span class="weather-today__location-name weather-today__gray-text">Москва</span>
+                        <span class="weather-aside__location-name weather-aside__gray-text">Москва</span>
                     </div>
                 </div>
 
 
             </div>
+            <!-- WEATHER TODAY END -->
 
         </aside>
-        <article class="weather"></article>
+        <div class="weather">
+            <div class="container">
+                <article class="weather-select">
+                    <div class="weather-select__top">
+                        <h2 class="weather__title title">Прогноз</h2>
+                        <ul class="weather-select__list-top">
+                            <li class="weather-select__item item">
+                                <button class="btn-reset item__gap-btn btn-for-week item__gap-btn--active">
+                                    На неделю
+                                </button>
+                            </li>
+                            <li class="weather-select__item item ">
+                                <button class="btn-reset item__gap-btn btn-hourly">
+                                    Почасовой
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="weather-select__main">
+                        <button class="bth-reset weather-select__slider-btn  weather-select__slider-btn-prev weather-select__slider-btn--disabled"></button>
+                        <ul class="weather-select__slider-list list-hourly">
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            15:00
+                                        </p>
+                                        <img src="./img/fog.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            10°C
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            16:00
+                                        </p>
+                                        <img src="./img/fog.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            10°C
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            17:00
+                                        </p>
+                                        <img src="./img/fog.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            10°C
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            18:00
+                                        </p>
+                                        <img src="./img/fog.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            10°C
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            19:00
+                                        </p>
+                                        <img src="./img/storm.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            10°C
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            20:00
+                                        </p>
+                                        <img src="./img/storm.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="weather-select__slider-list list-for-week list-active ">
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            Завтра
+                                        </p>
+                                        <img src="./img/fog.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                            <span class="card__feeling-of-temp">4°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            Пн, 15 мар
+                                        </p>
+                                        <img src="./img/rain.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                            <span class="card__feeling-of-temp">4°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            Вт, 16 мар
+                                        </p>
+                                        <img src="./img/rain.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                            <span class="card__feeling-of-temp">4°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            Ср, 17 мар
+                                        </p>
+                                        <img src="./img/storm.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                            <span class="card__feeling-of-temp">4°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            Чт, 18 мар
+                                        </p>
+                                        <img src="./img/storm.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                            <span class="card__feeling-of-temp">4°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="weather-select__item item">
+                                <a href="#" class="item__link">
+                                    <div class="item__card card">
+                                        <p class="card__time">
+                                            Пт, 19 мар
+                                        </p>
+                                        <img src="./img/storm.png" alt="" class="card__element-img">
+                                        <p class="card__temperature">
+                                            <span class="card__acurate-temp">10°C</span>
+                                            <span class="card__feeling-of-temp">4°C</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="bth-reset weather-select__slider-btn  weather-select__slider-btn-next"></button>
+                    </div>
+                </article>
+            </div>
+        </div>
 
     </main>
 </body>

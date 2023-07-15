@@ -1,9 +1,19 @@
 @media (max-width: 1195px) {
     .aside {}
 
-    .weather-today__search-activate-block {
+    .weather-aside__search-activate-block {
         padding-left: 23px;
-      }
+    }
+
+    .weather-select__item:nth-child(4),
+    .weather-select__item:nth-child(5),
+    .weather-select__item:nth-child(6) {
+        display: none;
+    }
+
+    .container {
+        max-width: 348px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -17,16 +27,35 @@
         width: 315px;
     }
 
-    .weather-today__search-activate-block {
+    .weather-aside__search-activate-block {
         padding-left: 0;
     }
 
     .weather {
         min-height: 300px;
     }
+    .weather-select__top {
+        justify-content: center;
+    }
+    .weather-select__list-top {
+        justify-content: space-around;
+    }
+    .weather-select__item:nth-child(4),
+    .weather-select__item:nth-child(5),
+    .weather-select__item:nth-child(6) {
+        display: block;
+    }
+
+    .container {
+        max-width: 348px;
+    }
+    .weather-select__slider-btn {
+        display: none;
+    }
+    .weather-select__slider-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
-@media (max-width: 500px) {
-   
-
-}
+@media (max-width: 500px) {}
