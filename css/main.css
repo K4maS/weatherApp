@@ -1,0 +1,6 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('style.css');
+@import url('weatherAside.css');
+@import url('weatherMoreDetailed.css');
+@import url('weatherSelect.css');
+@import url('media.css');

@@ -1,15 +1,16 @@
 /*weather-aside */
 .aside {
-    width: 47%;
-    max-width: 460px;
+    width: 50%;
+    /* max-width: 476px; */
     height: 100vh;
     position: relative;
+    background: rgba(241, 241, 241, 1);
 }
 
 .weather-aside {
     display: flex;
     position: fixed;
-    width: 31%;
+    width: 32%;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
@@ -28,7 +29,7 @@
     gap: 22px;
     position: absolute;
     padding-top: 76px;
-    padding-right: 44px;
+    padding-right: 37px;
     padding-left: 44px;
     background-color: #fff;
     width: 100%;
@@ -41,15 +42,15 @@
 .search-block--active {
     animation: slideFromLeft 0.5s alternate;
     left: -1%;
-    top: 4%;
+    top: 40px;
     opacity: 1;
 }
 
 
 .weather-aside__close-btn {
     position: absolute;
-    top: 0;
-    right: 5%;
+    top: 6px;
+    right: 37px;
     border: none;
     padding: 0;
 }
@@ -72,7 +73,7 @@
 
 .weather-aside__search-activate-block {
     padding-left: 41px;
-    /* margin-bottom: 23px; */
+    margin-bottom: 23px;
 }
 
 .weather-aside__img {
