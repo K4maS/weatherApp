@@ -1,0 +1,93 @@
+.weather-more-detailed{
+   margin-bottom: 44px;
+}
+
+.weather-more-detailed__title {
+    margin-bottom: 19px;
+}
+
+.weather-more-detailed__detailed-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 80px;
+}
+
+.weather-more-detailed__item .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 320px; */
+    min-height: 162px;
+    height: 100%;
+    padding-top: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.weather-more-detailed__item .card__title {
+    margin-bottom: 11px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.weather-more-detailed__item .card__indications {
+    margin-bottom: 3px;
+}
+
+.weather-more-detailed__item .card__indication-number {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 76px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+
+.weather-more-detailed__item .card__indication-symbol {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+
+.weather-more-detailed__item .card__indication-long-symbol {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.weather-more-detailed__item .card__wind-direction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    gap: 11px;
+    margin-bottom: 12px;
+}
+
+.weather-more-detailed__item .card__wind-direction-circle {
+    width: 38px;
+    height: 38px;
+    background: rgba(72, 72, 74, 1);
+    border-radius: 100%;
+    background-image: url('../img/wind-director.png');
+    background-repeat: no-repeat;
+    background-position: 63%  center;
+}
+
+
+.weather-more-detailed__item .card__side-of-the-world {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+}

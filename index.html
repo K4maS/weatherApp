@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/weatherAside.css">
-    <link rel="stylesheet" href="css/weatherSelect.css">
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/weatherAside.css">
+    <link rel="stylesheet" href="./css/weatherSelect.css">
+    <link rel="stylesheet" href="./css/weatherMoreDetailed.css">
+    <link rel="stylesheet" href="./css/media.css">
     <script defer src="./js/main.js" type="module"></script>
 
 </head>
@@ -39,7 +40,7 @@
 
     <main class="main">
         <aside class="aside">
-            <!-- WEATHER TODAY BEGIN -->
+            <!-- WEATHER ASIDE BEGIN -->
             <div class="weather-aside">
                 <div class="weather-aside__search-block weather-search-block">
                     <button class="btn btn-reset weather-aside__close-btn weather-search-block-close-btn">
@@ -87,11 +88,12 @@
 
 
             </div>
-            <!-- WEATHER TODAY END -->
+            <!-- WEATHER ASIDE END -->
 
         </aside>
         <div class="weather">
             <div class="container">
+                  <!-- WEATHER SELECT BEGIN -->
                 <article class="weather-select">
                     <div class="weather-select__top">
                         <h2 class="weather__title title">Прогноз</h2>
@@ -189,7 +191,7 @@
                                         </p>
                                     </div>
                                 </a>
-                            </li>
+                            </li> G
                         </ul>
 
                         <ul class="weather-select__slider-list list-for-week list-active ">
@@ -281,6 +283,84 @@
                         <button class="bth-reset weather-select__slider-btn  weather-select__slider-btn-next"></button>
                     </div>
                 </article>
+                <!-- WEATHER SELECT END -->
+                <!-- WEATHER MORE DETAILED BEGIN -->
+                <article class="weather-more-detailed">
+                    <h2 class="weather-more-detailed__title weather__title title">Подробно на сегодня</h2>
+                    <div class="weather-more-detailed__main-block">
+                        <ul class="weather-more-detailed__detailed-list">
+                            <li class="weather-more-detailed__item item">
+                                <div class="item__card card">
+                                    <h3 class="card__title">
+                                        Скорость ветра
+                                    </h3>
+                                    <p class="card__indications">
+                                        <span class="card__indication-number">
+                                            7
+                                        </span>
+                                        <span class="card__indication-symbol">
+                                            м/с
+                                        </span>
+                                    </p>
+                                    <div class="card__wind-direction">
+                                        <div class="card__wind-direction-circle">
+                                            <img src="./" alt="" class="card__wind-direction-arrow"> 
+                                        </div>
+                                        <span class="card__side-of-the-world">
+                                            СЗ
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="weather-more-detailed__item item">
+                                <div class="item__card card">
+                                    <h3 class="card__title">
+                                        Влажность
+                                    </h3>
+                                    <p class="card__indications">
+                                        <span class="card__indication-number">
+                                            84
+                                        </span>
+                                        <span class="card__indication-symbol">
+                                            %
+                                        </span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="weather-more-detailed__item item">
+                                <div class="item__card card">
+                                    <h3 class="card__title">
+                                        Видимость
+                                    </h3>
+                                    <p class="card__indications">
+                                        <span class="card__indication-number">
+                                            6.2
+                                        </span>
+                                        <span class="card__indication-symbol">
+                                            км
+                                        </span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="weather-more-detailed__item item">
+                                <div class="item__card card">
+                                    <h3 class="card__title">
+                                        Давление
+                                    </h3>
+                                    <p class="card__indications">
+                                        <span class="card__indication-number">
+                                            742
+                                        </span>
+                                        <span class="card__indication-long-symbol">
+                                            мм.рт.ст.
+                                        </span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- WEATHER MORE DETAILED END -->
             </div>
         </div>
 
