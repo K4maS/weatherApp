@@ -1,3 +1,9 @@
+@media (max-width: 1360px) {
+    .weather-more-detailed__detailed-list {
+       gap: 18px;
+    }
+}
+
 @media (max-width: 1195px) {
     .container {
         max-width: 348px;
