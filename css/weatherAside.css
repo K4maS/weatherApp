@@ -18,6 +18,11 @@
     min-height: 667px;
     padding-top: 42px;
     background-color: var(--aside-bg);
+    background-image: url('../img/cloud-bg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-blend-mode: difference;
 }
 
 .weather-aside__search-block {
@@ -57,6 +62,10 @@
     padding: 0;
 }
 
+.weather-aside__close-btn svg {
+    fill: var(--cross);
+}
+
 .weather-aside__search-input {
     /* padding-left: 44px; */
     background-image: url('../img/svg/magnifying-glass.svg');
@@ -78,12 +87,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 41px;
+    padding: 0 41px;
     margin-bottom: 23px;
-}
-
-.weather-aside__theme-switch {
-    margin-right: 44px;
 }
 
 .weather-aside__theme-switch input {
@@ -110,7 +115,7 @@
     background-image: url('../img/svg/dark-theme.svg');
     background-position: 40% 40%;
     background-repeat: no-repeat;
-    transition: left linear 0.5s;
+    transition: left linear 0.1s;
 }
 
 
@@ -132,11 +137,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url('../img/cloud-bg.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-blend-mode: difference;
+
 }
 
 

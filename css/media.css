@@ -1,3 +1,5 @@
+@import url('variables.css');
+
 @media (max-width: 1360px) {
     .weather-more-detailed__detailed-list {
         gap: 18px;
@@ -29,7 +31,7 @@
     }
 
     .weather-aside__search-activate-block {
-        padding-left: 23px;
+        padding: 0 23px;
     }
 
     .weather-aside__close-btn {
@@ -86,11 +88,14 @@
     .aside {
         height: unset;
         width: 315px;
+        width: 100%;
+        background-color: var(--aside-bg);
     }
 
 
 
     .weather-aside {
+        align-items: center;
         position: relative;
         width: 100%;
         padding-top: 31px;
@@ -98,7 +103,12 @@
 
     .weather-aside__search-activate-block {
         padding-left: 0;
-        margin-bottom: 10px;
+        padding: 0 10px;
+        width: 315px;
+    }
+
+    .weather-aside__state {
+        width: 315px;
     }
 
     .weather-aside__img {

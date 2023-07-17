@@ -75,6 +75,7 @@ ul {
     letter-spacing: 0em;
     text-align: center;
     color: var(--text);
+    background-color: transparent;
 }
 
 .btn {

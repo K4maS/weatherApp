@@ -78,7 +78,7 @@
 .weather-more-detailed__item .card__wind-direction-circle {
     width: 38px;
     height: 38px;
-    background: var(--text);
+    background: var(--compass);
     border-radius: 100%;
     background-image: url('../img/wind-director.png');
     background-repeat: no-repeat;
