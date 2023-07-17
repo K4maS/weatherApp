@@ -1,0 +1,10 @@
+:root {
+    --text: rgba(72, 72, 74, 1);
+    --theme-toggle: rgba(72, 72, 74, 1);
+    --btn-border: rgba(172, 172, 172, 1);
+    --right-bg-color: rgba(241, 241, 241, 1);
+    --aside-bg: #fff;
+    --card-color: #fff;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --gray-text: rgba(211, 211, 211, 1);
+}

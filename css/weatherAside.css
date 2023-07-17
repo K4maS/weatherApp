@@ -1,10 +1,11 @@
+@import url('variables.css');
+
 /*weather-aside */
 .aside {
     width: 50%;
     /* max-width: 476px; */
     height: 100vh;
     position: relative;
-    background: rgba(241, 241, 241, 1);
 }
 
 .weather-aside {
@@ -16,7 +17,7 @@
     height: 100%;
     min-height: 667px;
     padding-top: 42px;
-    background-color: #fff;
+    background-color: var(--aside-bg);
 }
 
 .weather-aside__search-block {
@@ -31,12 +32,13 @@
     padding-top: 76px;
     padding-right: 37px;
     padding-left: 44px;
-    background-color: #fff;
+    background-color: var(--aside-bg);
     width: 100%;
     height: calc(100% - 44px);
     left: -300%;
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
+    z-index: 2;
 }
 
 .search-block--active {
@@ -72,9 +74,51 @@
 }
 
 .weather-aside__search-activate-block {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-left: 41px;
     margin-bottom: 23px;
 }
+
+.weather-aside__theme-switch {
+    margin-right: 44px;
+}
+
+.weather-aside__theme-switch input {
+    z-index: 1;
+    position: relative;
+    width: 64px;
+    height: 32px;
+    appearance: none;
+    outline: none;
+    background-color: var(--aside-bg);
+    border: 2px solid var(--btn-border);
+    border-radius: 16px;
+}
+
+.weather-aside__theme-switch input::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    top: 4px;
+    left: 4px;
+    background-color: var(--theme-toggle);
+    background-image: url('../img/svg/dark-theme.svg');
+    background-position: 40% 40%;
+    background-repeat: no-repeat;
+    transition: left linear 0.5s;
+}
+
+
+.weather-aside__theme-switch input:checked::after {
+    top: 4px;
+    left: 36px;
+}
+
 
 .weather-aside__img {
     align-self: center;
@@ -89,6 +133,10 @@
     justify-content: space-between;
     align-items: center;
     background-image: url('../img/cloud-bg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-blend-mode: difference;
 }
 
 
@@ -138,7 +186,7 @@
     line-height: 21px;
     letter-spacing: 0em;
     text-align: center;
-    color: rgba(172, 172, 172, 1);
+    color: var(--btn-border);
 
 }
 

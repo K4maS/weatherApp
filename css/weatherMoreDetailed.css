@@ -1,5 +1,7 @@
-.weather-more-detailed{
-   margin-bottom: 44px;
+@import url('variables.css');
+
+.weather-more-detailed {
+    margin-bottom: 44px;
 }
 
 .weather-more-detailed__title {
@@ -21,8 +23,8 @@
     height: 100%;
     padding-top: 20px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.05);
+    background: var(--card-color);
+    box-shadow: 0px 8px 15px 0px var(--shadow);
 }
 
 .weather-more-detailed__item .card__title {
@@ -76,11 +78,11 @@
 .weather-more-detailed__item .card__wind-direction-circle {
     width: 38px;
     height: 38px;
-    background: rgba(72, 72, 74, 1);
+    background: var(--text);
     border-radius: 100%;
     background-image: url('../img/wind-director.png');
     background-repeat: no-repeat;
-    background-position: 63%  center;
+    background-position: 63% center;
 }
 
 
