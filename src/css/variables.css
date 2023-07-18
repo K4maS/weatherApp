@@ -2,6 +2,8 @@
     --text: rgba(72, 72, 74, 1);
     --theme-toggle: rgba(72, 72, 74, 1);
     --btn-border: rgba(172, 172, 172, 1);
+    --btn-bg-transition: rgb(236, 236, 236); 
+    --btn-border-transition: rgb(131, 131, 131); 
     --right-bg-color: rgba(241, 241, 241, 1);
     --aside-bg: #fff;
     --card-color: #fff;

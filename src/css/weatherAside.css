@@ -18,7 +18,7 @@
     min-height: 667px;
     padding-top: 42px;
     background-color: var(--aside-bg);
-    background-image: url('../img/cloud-bg.webp');
+    background-image: url('../assets/img/cloud-bg.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -48,8 +48,8 @@
 
 .search-block--active {
     animation: slideFromLeft 0.5s alternate;
-    left: -1%;
-    top: 40px;
+    left: 0%;
+    top: 30px;
     opacity: 1;
 }
 
@@ -60,15 +60,32 @@
     right: 37px;
     border: none;
     padding: 0;
+    transition: opacity 0.3s linear;
 }
 
 .weather-aside__close-btn svg {
     fill: var(--cross);
 }
 
+.weather-aside__close-btn:focus {
+    outline: none;
+    opacity: 0.7;
+}
+
+.weather-aside__close-btn:hover {
+    opacity: 0.7;
+}
+
+.weather-aside__close-btn:active {
+    opacity: 0.5;
+}
+
+
+
+
 .weather-aside__search-input {
     /* padding-left: 44px; */
-    background-image: url('../img/svg/magnifying-glass.svg');
+    background-image: url('../assets/img/svg/magnifying-glass.svg');
     background-repeat: no-repeat;
     background-position: 17px, center;
 }
@@ -78,9 +95,21 @@
     height: 26px;
 }
 
+.weather-aside__search-btn:focus {
+    outline: none;
+    border-color: var(--btn-border-transition);
+    background-color: var(--btn-bg-transition);
+}
+
+.weather-aside__search-btn:hover {
+    background-color: var(--btn-bg-transition);
+}
+
 .weather-aside__search-block .weather-aside__search-btn {
     padding: 14px 19px;
 }
+
+
 
 .weather-aside__search-activate-block {
 
@@ -101,7 +130,20 @@
     background-color: var(--aside-bg);
     border: 2px solid var(--btn-border);
     border-radius: 16px;
+    cursor: pointer;
+    transition: linear 0.3s;
 }
+
+.weather-aside__theme-switch input:focus {
+    outline: none;
+    border-color: var(--btn-border-transition);
+    background-color: var(--btn-bg-transition);
+}
+
+.weather-aside__theme-switch input:hover {
+    background-color: var(--btn-bg-transition);
+}
+
 
 .weather-aside__theme-switch input::after {
     content: '';
@@ -112,7 +154,7 @@
     top: 4px;
     left: 4px;
     background-color: var(--theme-toggle);
-    background-image: url('../img/svg/dark-theme.svg');
+    background-image: url('../assets/img/svg/dark-theme.svg');
     background-position: 40% 40%;
     background-repeat: no-repeat;
     transition: left linear 0.1s;

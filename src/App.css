@@ -1,0 +1,87 @@
+/* globe */
+
+.container {
+  margin: 0 auto;
+  max-width: 720px;
+  width: 78%;
+}
+
+.main {
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn,
+.input {
+  border-radius: 10px;
+  border: 2px solid var(--btn-border);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--text);
+  background-color: transparent;
+}
+
+.btn {
+  padding: 13px 25px;
+  transition:
+    background 0.3s linear,
+    border 0.3s linear,
+    color 0.3s linear,
+    opacity 0.3s linear;
+}
+
+
+.input {
+  height: 50px;
+  width: 250px;
+  transition:
+    background 0.3s linear,
+    border 0.3s linear,
+    color 0.3s linear,
+    opacity 0.3s linear;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--btn-border-transition);
+  /* background-color: var(--btn-bg-transition); */
+}
+
+.input:hover {
+  /* background-color: var(--btn-bg-transition); */
+}
+
+
+/* .weather  */
+.weather {
+  padding-top: 42px;
+  width: 100%;
+  /* background: var(--right-bg-color); */
+}

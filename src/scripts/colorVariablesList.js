@@ -12,6 +12,15 @@ export const lightThemeColors = [
         value: "rgba(172, 172, 172, 1)"
     },
     {
+        name: "--btn-bg-transition",
+        value: "rgb(97 96 96)"
+    },
+    {
+        name: "--btn-border-transition",
+        value: "rgb(230 230 230)"
+    },
+
+    {
         name: "--cross",
         value: "#48484A"
     },
@@ -49,6 +58,15 @@ export const darkThemeColors = [
     {
         name: "--btn-border",
         value: " rgba(172, 172, 172, 1)"
+    },
+
+    {
+        name: "--btn-bg-transition",
+        value: "rgb(236, 236, 236)"
+    },
+    {
+        name: "--btn-border-transition",
+        value: "rgb(131, 131, 131)"
     },
     {
         name: "--cross",

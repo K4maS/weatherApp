@@ -31,16 +31,29 @@
     line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
-    color:var(--btn-border);
+    color: var(--btn-border);
+    transition: color 0.3s linear;
+}
+
+.weather-select__list-top .item__gap-btn:hover {
+    color: var(--text);
+}
+
+.weather-select__list-top .item__gap-btn:focus {
+    outline: none;
+    color: var(--text);
 }
 
 .weather-select__list-top .item__gap-btn--active {
     color: var(--text);
     position: relative;
-    
+    transition: color 0.3s linear;
 }
 
-.weather-select__list-top .item__gap-btn--active::after {
+.weather-select__list-top .item__gap-btn::after {
+    transition:
+        background 0.3s linear,
+        opacity 0.5s linear;
     content: '';
     position: absolute;
     bottom: -11px;
@@ -48,6 +61,12 @@
     width: 100%;
     background: var(--text);
     height: 3px;
+    opacity: 0;
+}
+
+.weather-select__list-top .item__gap-btn--active::after {
+    opacity: 1;
+
 }
 
 .weather-select__list-top {
@@ -74,6 +93,7 @@
 .list-active {
     display: flex;
 }
+
 .weather-select__slider-btn {
     position: absolute;
     top: 37%;
@@ -82,7 +102,7 @@
     border: none;
     border-radius: 100%;
     background-color: var(--card-color);
-    background-image: url('../img/svg/slider-arrow.svg');
+    background-image: url('../assets/img/svg/slider-arrow.svg');
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;

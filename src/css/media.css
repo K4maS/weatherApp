@@ -107,6 +107,10 @@
         width: 315px;
     }
 
+    .weather-aside__search-input {
+        max-width: 315px;
+    }
+
     .weather-aside__state {
         width: 315px;
     }

@@ -80,7 +80,7 @@
     height: 38px;
     background: var(--compass);
     border-radius: 100%;
-    background-image: url('../img/wind-director.png');
+    background-image: url('../assets/img/wind-director.png');
     background-repeat: no-repeat;
     background-position: 63% center;
 }
