@@ -1,12 +1,6 @@
 @import url('variables.css');
 
 /*weather-aside */
-.aside {
-    width: 50%;
-    /* max-width: 476px; */
-    height: 100vh;
-    position: relative;
-}
 
 .weather-aside {
     display: flex;
@@ -155,7 +149,7 @@
     left: 4px;
     background-color: var(--theme-toggle);
     background-image: url('../assets/img/svg/dark-theme.svg');
-    background-position: 40% 40%;
+    background-position: 45% 49%;
     background-repeat: no-repeat;
     transition: left linear 0.1s;
 }
@@ -256,4 +250,69 @@
 .weather-aside__baloon {
     width: 40px;
     height: 40px;
+}
+
+@media (max-width: 1195px) {
+
+    /* weather-aside */
+    .weather-aside {
+        width: 39%;
+        padding-top: 51px;
+    }
+
+    .weather-aside__search-block {
+        padding-top: 81px;
+        padding-right: 20px;
+        padding-left: 31px;
+    }
+
+    .weather-aside__search-activate-block {
+        padding: 0 23px;
+    }
+
+    .weather-aside__close-btn {
+        top: 19px;
+        right: 20px;
+    }
+
+    .weather-aside__search-input {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+
+    /* weather-aside */
+    .weather-aside {
+        align-items: center;
+        position: relative;
+        width: 100%;
+        padding-top: 31px;
+    }
+
+    .weather-aside__search-activate-block {
+        padding-left: 0;
+        padding: 0 10px;
+        width: 315px;
+    }
+
+    .weather-aside__search-input {
+        max-width: 315px;
+    }
+
+    .weather-aside__state {
+        width: 315px;
+    }
+
+    .weather-aside__img {
+        margin-bottom: -29px;
+    }
+
+    .weather-aside__location {
+        margin-bottom: 33px;
+    }
+
+
 }

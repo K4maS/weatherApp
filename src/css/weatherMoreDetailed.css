@@ -82,7 +82,7 @@
     border-radius: 100%;
     background-image: url('../assets/img/wind-director.png');
     background-repeat: no-repeat;
-    background-position: 63% center;
+    background-position: 61% 63%;
 }
 
 
@@ -92,4 +92,42 @@
     line-height: 21px;
     letter-spacing: 0em;
     text-align: center;
+}
+
+@media (max-width: 1360px) {
+
+    /* weather-more-detailed */
+    .weather-more-detailed__detailed-list {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 1195px) {
+
+    /* weather-more-detailed */
+    .weather-more-detailed__title {
+        margin-bottom: 27px;
+        margin-left: -10px;
+    }
+
+    .weather-more-detailed {
+        width: 320px;
+    }
+
+    .weather-more-detailed__detailed-list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* weather-more-detailed */
+    .weather-more-detailed {
+        margin-right: 0;
+    }
+
+    .weather-more-detailed__detailed-list {
+        gap: 45px;
+    }
 }

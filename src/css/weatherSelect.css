@@ -25,6 +25,7 @@
 }
 
 .weather-select__list-top .item__gap-btn {
+    position: relative;
     text-transform: lowercase;
     font-size: 20px;
     font-weight: 700;
@@ -51,22 +52,21 @@
 }
 
 .weather-select__list-top .item__gap-btn::after {
-    transition:
-        background 0.3s linear,
-        opacity 0.5s linear;
-    content: '';
     position: absolute;
+    content: '';
     bottom: -11px;
     left: 1px;
     width: 100%;
     background: var(--text);
     height: 3px;
     opacity: 0;
+    transition:
+        background 0.3s linear,
+        opacity 0.5s linear;
 }
 
 .weather-select__list-top .item__gap-btn--active::after {
     opacity: 1;
-
 }
 
 .weather-select__list-top {
@@ -92,6 +92,7 @@
 
 .list-active {
     display: flex;
+
 }
 
 .weather-select__slider-btn {
@@ -165,4 +166,78 @@
 
 .weather-select__slider-list .card__feeling-of-temp {
     color: var(--gray-text);
+}
+
+
+@media (max-width: 1195px) {
+
+    /* weather-select */
+    .weather-select {
+        margin-bottom: 42px;
+    }
+
+    .weather-select__top {
+        margin-right: -21px;
+    }
+
+    .weather-select__slider-btn-prev {
+        left: -50px;
+    }
+
+    .weather-select__slider-btn-next {
+        right: -50px;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+ /* weather-select  */
+    .weather-select {
+        margin-bottom: 59px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-select__top {
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: 42px;
+    }
+
+    .weather-select__top .title {
+        margin-bottom: 6px;
+    }
+
+    .weather-select__list-top {
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .weather-select__main {
+        width: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-select__slider-list {
+        gap: 30px 55px;
+    }
+
+    .weather-select__slider-list.list-active {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .weather-select__slider-btn {
+        display: none;
+    }
+
+    .weather-select__slider-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 }

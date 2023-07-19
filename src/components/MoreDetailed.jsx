@@ -1,5 +1,4 @@
 import "../css/weatherMoreDetailed.css";
-import "../css/media.css";
 
 function MoreDetailed() {
   return (
