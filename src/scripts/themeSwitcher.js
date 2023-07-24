@@ -1,21 +1,20 @@
-import { darkThemeColors, lightThemeColors } from "./colorVariablesList.js";
+import {themeVariables } from "./colorVariablesList.js";
 
-function changeColorVariable({ name, value }) {
-    document.documentElement.style.setProperty(name, value);
+function changeColorVariable(element, themeType) {
+    document.documentElement.style.setProperty(element, `var(${element}-${themeType})`);
 }
 
-function changeVariablesList(variablesList) {
-    variablesList.forEach(element => {
-        const [name, value] = [element.name, element.value];
-        changeColorVariable({ name, value })
+function changeVariablesList(themeType) {
+    themeVariables.forEach(element => {
+        changeColorVariable(element, themeType)
     });
 }
 
 export function changingTheme(e) {
     if (e.target.checked) {
-        changeVariablesList(lightThemeColors);
+        changeVariablesList('dark');
     }
     else {
-        changeVariablesList(darkThemeColors);
+        changeVariablesList('light');
     }
 }

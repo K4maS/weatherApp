@@ -1,14 +1,42 @@
 :root {
-    --text: rgba(72, 72, 74, 1);
-    --theme-toggle: rgba(72, 72, 74, 1);
-    --btn-border: rgba(172, 172, 172, 1);
-    --btn-bg-transition: rgb(236, 236, 236); 
-    --btn-border-transition: rgb(131, 131, 131); 
-    --right-bg-color: rgba(241, 241, 241, 1);
-    --aside-bg: #fff;
-    --card-color: #fff;
-    --shadow: rgba(0, 0, 0, 0.05);
-    --gray-text: rgba(211, 211, 211, 1);
-    --compass: rgba(72, 72, 74, 1);
-    --cross: #48484A; 
+    --text: var(--text-light);
+    --theme-toggle: var(--theme-toggle-light);
+    --btn-border: var(--btn-border-light);
+    --btn-bg-transition: var(--btn-bg-transition-light);
+    --btn-border-transition: var(--btn-border-transition-light);
+    --right-bg-color: var(--right-bg-color-light);
+    --aside-bg: var(--aside-bg-light);
+    --card-color: var(--card-color-light);
+    --shadow: var(--shadow-light);
+    --gray-text: var(--gray-text-light);
+    --compass: var(--compass-light);
+    --cross: var(--cross-light);
+
+    /* light theme colors */
+    --text-light: rgba(72, 72, 74, 1);
+    --theme-toggle-light: rgba(72, 72, 74, 1);
+    --btn-border-light: rgba(172, 172, 172, 1);
+    --btn-bg-transition-light: rgb(236, 236, 236);
+    --btn-border-transition-light: rgb(131, 131, 131);
+    --right-bg-color-light: rgba(241, 241, 241, 1);
+    --aside-bg-light: #fff;
+    --card-color-light: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --gray-text-light: rgba(211, 211, 211, 1);
+    --compass-light: rgba(72, 72, 74, 1);
+    --cross-light: #48484A;
+
+    /* dark theme colors */
+    --text-dark: rgba(230, 230, 230, 1);
+    --theme-toggle-dark: rgba(236, 110, 77, 1);
+    --btn-border-dark: rgba(172, 172, 172, 1);
+    --btn-bg-transition-dark: rgb(97 96 96);
+    --btn-border-transition-dark: rgb(230 230 230);
+    --cross-dark: #48484A;
+    --right-bg-color-dark: rgba(16, 14, 28, 1);
+    --aside-bg-dark: rgba(33, 35, 49, 1);
+    --card-color-dark: rgba(33, 35, 49, 1);
+    --shadow-dark: transporent;
+    --gray-text-dark: rgba(109, 109, 109, 1);
+
 }
