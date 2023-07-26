@@ -3,7 +3,9 @@ import storm from "../assets/img/storm.png";
 import rain from "../assets/img/rain.png";
 
 function SelectCard(props) {
+  
   let elementImg;
+
   const data = props.cardContent;
   const [date, elemelnt, actulaTemperature, feelsAsTemperature] = [
     data.date,
@@ -19,6 +21,7 @@ function SelectCard(props) {
   } else if (elemelnt === "rain") {
     elementImg = rain;
   }
+
   return (
     <li className="weather-select__item item">
       <a href="#" className="item__link">

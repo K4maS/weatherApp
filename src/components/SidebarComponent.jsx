@@ -1,7 +1,7 @@
 import "../css/weatherAside.css";
 import snowflake from "../assets/img/snowflake.webp";
 import WeatherAsideMainBlock from "../modules/WeatherAsideMainBlock";
-import { changingTheme } from "../scripts/themeSwitcher.js";
+import { themeChanger } from "../scripts/themeSwitcher.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GET_CITY,
@@ -30,6 +30,7 @@ function SidebarComponent() {
   const getCity = () => {
     dispatch({ type: GET_CITY, getCityName });
   };
+
   return (
     <div className="weather-aside">
       <div
@@ -82,14 +83,15 @@ function SidebarComponent() {
           Поиск города
         </button>
         <div className="weather-aside__theme-switch">
+          {/* Переключатель тем */}
           <input
             type="checkbox"
             name=""
             id=""
-            checked={`${darkTheme ? true : false}`}
+            checked={darkTheme}
             className="theme-changing-btn"
-            onClick={(e) => {
-              changingTheme(e.target.checked);
+            onChange={(e) => {
+              themeChanger(e.target.checked);
               dispatch(changeTheme(e.target.checked));
             }}
           ></input>

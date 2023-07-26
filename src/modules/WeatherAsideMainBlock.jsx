@@ -4,6 +4,7 @@ import "../css/weatherAside.css";
 function WeatherAsideMainBlock() {
   const getCityData = useSelector((state) => state.toolkit.currentCityData);
   const CurrentCity = getCityData[0];
+  
   return (
     <div className="weather-aside__main-block">
       <div className="weather-aside__state">

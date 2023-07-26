@@ -7,18 +7,25 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   GET_CITY,
   addCitiesList,
-  changeCurrentCity,
   changeTheme,
   updateDataLoaded,
 } from "./store/slice";
-import { changingTheme } from "./scripts/themeSwitcher";
+import { themeChanger } from "./scripts/themeSwitcher";
 
 function App() {
   const dispatch = useDispatch();
   const dataLoaded = useSelector((state) => state.toolkit.dataLoaded);
   const getCityName = useSelector((state) => state.toolkit.currentCity);
 
+  // Загрузка данных при загрузке приложения
   if (!dataLoaded) {
+    // Извлечение значения темы из локал сторадж
+    if (localStorage.getItem("darkTheme")) {
+      const darkThemeLocal = JSON.parse(localStorage.getItem("darkTheme"));
+      dispatch(changeTheme(darkThemeLocal));
+      themeChanger(darkThemeLocal);
+    }
+    // Извлечение списка городов из локал сторадж
     if (localStorage.getItem("citiesList")) {
       const savedCityList = JSON.parse(localStorage.getItem("citiesList"));
       // Тут новый getCityName, так как на той стороне нужен он
@@ -29,11 +36,6 @@ function App() {
       dispatch({ type: GET_CITY, getCityName });
     }
     dispatch(updateDataLoaded(true));
-    if (localStorage.getItem("darkTheme")) {
-      const darkThemeLocal = JSON.parse(localStorage.getItem("darkTheme"));
-      dispatch(changeTheme(darkThemeLocal));
-      changingTheme(darkThemeLocal);
-    }
   }
   return (
     <div className="App">

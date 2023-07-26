@@ -28,9 +28,17 @@
     width: 100%;
     height: calc(100% - 44px);
     left: -300%;
+    top: 30px;
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
     z-index: 2;
+
+}
+
+.search-block--active {
+    animation: slideFromLeft 0.5s alternate;
+    left: 0%;
+    opacity: 1;
 }
 
 .weather-aside__search-form {
@@ -49,13 +57,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-}
 
-.search-block--active {
-    animation: slideFromLeft 0.5s alternate;
-    left: 0%;
-    top: 30px;
-    opacity: 1;
 }
 
 
@@ -114,10 +116,12 @@
 .weather-aside__search-block .weather-aside__search-btn {
     padding: 14px 19px;
 }
+
 .weather-aside__search-list-title {
     font-size: 23px;
     margin-bottom: 10px;
 }
+
 .weather-aside__search-list button {
     transition: color 0.3s linear;
 }
@@ -128,7 +132,6 @@
 
 
 .weather-aside__search-activate-block {
-
     display: flex;
     align-items: center;
     justify-content: space-between;

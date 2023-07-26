@@ -10,7 +10,7 @@ function changeVariablesList(themeType) {
     });
 }
 
-export function changingTheme(checked) {
+export function themeChanger(checked) {
     if (checked) {
         changeVariablesList('dark');
     }
