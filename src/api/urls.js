@@ -1,0 +1,1 @@
+export const GEO_URL = 'https://nominatim.openstreetmap.org'

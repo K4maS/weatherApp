@@ -1,0 +1,14 @@
+.weather-aside__search-list-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.weather-aside__search-list-title {
+    min-width: 300px;
+}
+
+.weather-aside__search-list {
+    min-width: 300px;
+}

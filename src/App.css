@@ -43,13 +43,14 @@ ul {
   font-weight: 700;
   line-height: 21px;
   letter-spacing: 0em;
-  text-align: center;
+  
   color: var(--text);
   background-color: transparent;
 }
 
 .btn {
   padding: 13px 25px;
+  text-align: center;
   transition:
     background 0.3s linear,
     border 0.3s linear,

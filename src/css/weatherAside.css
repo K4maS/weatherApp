@@ -20,13 +20,6 @@
 }
 
 .weather-aside__search-block {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    gap: 22px;
     position: absolute;
     padding-top: 76px;
     padding-right: 37px;
@@ -38,6 +31,24 @@
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
     z-index: 2;
+}
+
+.weather-aside__search-form {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.weather-aside__search-list {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
 }
 
 .search-block--active {
@@ -78,7 +89,8 @@
 
 
 .weather-aside__search-input {
-    /* padding-left: 44px; */
+    padding-left: 44px;
+    height: 53px;
     background-image: url('../assets/img/svg/magnifying-glass.svg');
     background-repeat: no-repeat;
     background-position: 17px, center;
@@ -102,7 +114,17 @@
 .weather-aside__search-block .weather-aside__search-btn {
     padding: 14px 19px;
 }
+.weather-aside__search-list-title {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+.weather-aside__search-list button {
+    transition: color 0.3s linear;
+}
 
+.weather-aside__search-list button:hover {
+    color: var(--text);
+}
 
 
 .weather-aside__search-activate-block {
@@ -166,9 +188,6 @@
 }
 
 .weather-aside__main-block {
-    /* padding-left: 41px;
-    margin-right: 41px; */
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -234,7 +253,6 @@
 .weather-aside__date {
     width: 100%;
     display: flex;
-    /* gap: calc(100% - 168px); */
     justify-content: space-around;
     margin-bottom: 25px;
 }
@@ -250,6 +268,26 @@
 .weather-aside__baloon {
     width: 40px;
     height: 40px;
+}
+
+.weather-aside__warning-block {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.weather-aside__warning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 27px;
+    text-align: center;
+    width: 100%;
+}
+
+.weather-aside__warning p {
+    width: 70%;
 }
 
 @media (max-width: 1195px) {

@@ -17,4 +17,5 @@ export function changingTheme(e) {
     else {
         changeVariablesList('light');
     }
+    
 }
