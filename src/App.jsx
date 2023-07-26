@@ -11,13 +11,12 @@ import {
   changeTheme,
   updateDataLoaded,
 } from "./store/slice";
+import { changingTheme } from "./scripts/themeSwitcher";
 
 function App() {
   const dispatch = useDispatch();
   const dataLoaded = useSelector((state) => state.toolkit.dataLoaded);
   const getCityName = useSelector((state) => state.toolkit.currentCity);
-  const darkTheme = useSelector((state) => state.toolkit.darkTheme);
-  // const getCitiesList = useSelector((state) => state.toolkit.citiesList);
 
   if (!dataLoaded) {
     if (localStorage.getItem("citiesList")) {
@@ -33,6 +32,7 @@ function App() {
     if (localStorage.getItem("darkTheme")) {
       const darkThemeLocal = JSON.parse(localStorage.getItem("darkTheme"));
       dispatch(changeTheme(darkThemeLocal));
+      changingTheme(darkThemeLocal);
     }
   }
   return (

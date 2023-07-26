@@ -25,6 +25,7 @@ function SidebarComponent() {
   const getSearchBlockIsActive = useSelector(
     (state) => state.toolkit.searchBlockIsActive
   );
+  const darkTheme = useSelector((state) => state.toolkit.darkTheme);
 
   const getCity = () => {
     dispatch({ type: GET_CITY, getCityName });
@@ -85,6 +86,7 @@ function SidebarComponent() {
             type="checkbox"
             name=""
             id=""
+            checked={`${darkTheme ? true : false}`}
             className="theme-changing-btn"
             onClick={(e) => {
               changingTheme(e.target.checked);
