@@ -11,7 +11,6 @@ function SearchListItem(props) {
         className="btn-reset item__btn weather-aside__gray-text"
         onClick={() => {
           dispatch({ type: GET_CITY, getCityName });
-          console.log(getCityName);
         }}
       >
         {getCityName}

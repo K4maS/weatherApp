@@ -36,13 +36,13 @@ const toolkitSlice = createSlice({
         loadingError: false,
         dataLoaded: false,
         searchBlockIsActive: false,
-        darkTheme: true,
+        darkTheme: false,
     },
     reducers: {
         // Получение из ари гео данных города
         changeTheme(state, action) {
             state.darkTheme = action.payload;
-            localStorage.setItem('darkTheme', action.payload);
+            localStorage.setItem('darkTheme', JSON.stringify(action.payload));
         },
         // Получение из ари гео данных города
         changeCurrentCityData(state, action) {
@@ -103,4 +103,5 @@ export const {
     updateDataLoaded,
     updateSearchBlockIsActive,
     addCitiesList,
+    changeTheme,
 } = toolkitSlice.actions;

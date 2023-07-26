@@ -10,8 +10,8 @@ function changeVariablesList(themeType) {
     });
 }
 
-export function changingTheme(e) {
-    if (e.target.checked) {
+export function changingTheme(checked) {
+    if (checked) {
         changeVariablesList('dark');
     }
     else {

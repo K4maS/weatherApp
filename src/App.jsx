@@ -8,6 +8,7 @@ import {
   GET_CITY,
   addCitiesList,
   changeCurrentCity,
+  changeTheme,
   updateDataLoaded,
 } from "./store/slice";
 
@@ -15,15 +16,24 @@ function App() {
   const dispatch = useDispatch();
   const dataLoaded = useSelector((state) => state.toolkit.dataLoaded);
   const getCityName = useSelector((state) => state.toolkit.currentCity);
-  const getCitiesList = useSelector((state) => state.toolkit.citiesList);
+  const darkTheme = useSelector((state) => state.toolkit.darkTheme);
+  // const getCitiesList = useSelector((state) => state.toolkit.citiesList);
+
   if (!dataLoaded) {
     if (localStorage.getItem("citiesList")) {
       const savedCityList = JSON.parse(localStorage.getItem("citiesList"));
+      // Тут новый getCityName, так как на той стороне нужен он
+      const getCityName = savedCityList[savedCityList.length - 1];
       dispatch(addCitiesList(savedCityList));
-      // dispatch(changeCurrentCity(getCitiesList[getCitiesList.length - 1]));
+      dispatch({ type: GET_CITY, getCityName });
+    } else {
+      dispatch({ type: GET_CITY, getCityName });
     }
-    dispatch({ type: GET_CITY, getCityName });
     dispatch(updateDataLoaded(true));
+    if (localStorage.getItem("darkTheme")) {
+      const darkThemeLocal = JSON.parse(localStorage.getItem("darkTheme"));
+      dispatch(changeTheme(darkThemeLocal));
+    }
   }
   return (
     <div className="App">

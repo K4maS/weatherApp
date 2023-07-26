@@ -7,6 +7,7 @@ import {
   GET_CITY,
   changeCitiesList,
   changeCurrentCity,
+  changeTheme,
   updateSearchBlockIsActive,
 } from "../store/slice";
 import SearchList from "../modules/SearchList";
@@ -86,7 +87,8 @@ function SidebarComponent() {
             id=""
             className="theme-changing-btn"
             onClick={(e) => {
-              changingTheme(e);
+              changingTheme(e.target.checked);
+              dispatch(changeTheme(e.target.checked));
             }}
           ></input>
         </div>
