@@ -7,18 +7,18 @@ function SelectCard(props) {
   let elementImg;
 
   const data = props.cardContent;
-  const [date, elemelnt, actulaTemperature, feelsAsTemperature] = [
+  const [date, element, actulaTemperature, feelsAsTemperature] = [
     data.date,
-    data.elemelnt,
+    data.element,
     data.actulaTemperature,
     data.feelsAsTemperature,
   ];
 
-  if (elemelnt === "fog") {
+  if (element === "fog") {
     elementImg = fog;
-  } else if (elemelnt === "storm") {
+  } else if (element === "storm") {
     elementImg = storm;
-  } else if (elemelnt === "rain") {
+  } else if (element === "rain") {
     elementImg = rain;
   }
 
