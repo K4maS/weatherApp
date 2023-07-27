@@ -7,7 +7,6 @@ function SearchList() {
 
   return (
     <div className="weather-aside__search-list-block">
-      <h2 className="weather-aside__search-list-title">Вы искали:</h2>
       <ul className="weather-aside__search-list">
         {getCitiesList.map((item) => (
           <SearchListItem key={item} cityName={item} />

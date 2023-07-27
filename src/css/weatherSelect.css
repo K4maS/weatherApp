@@ -73,7 +73,6 @@
     display: flex;
     align-items: center;
     gap: 18px;
-    /* width: 100%; */
 }
 
 .weather-select__main {
@@ -85,14 +84,12 @@
 
 .weather-select__slider-list {
     display: none;
-    /* flex-wrap: wrap; */
     gap: 24px;
     overflow: hidden;
 }
 
 .list-active {
     display: flex;
-
 }
 
 .weather-select__slider-btn {
@@ -192,7 +189,8 @@
 }
 
 @media (max-width: 768px) {
- /* weather-select  */
+
+    /* weather-select  */
     .weather-select {
         margin-bottom: 59px;
         display: flex;

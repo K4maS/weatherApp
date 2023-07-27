@@ -8,7 +8,7 @@ function SearchListItem(props) {
   return (
     <li className="weather-aside__search-item item" key={getCityName}>
       <button
-        className="btn-reset item__btn weather-aside__gray-text"
+        className="btn-reset item__btn"
         onClick={() => {
           dispatch({ type: GET_CITY, getCityName });
         }}

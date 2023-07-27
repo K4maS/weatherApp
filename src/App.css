@@ -10,6 +10,11 @@
   display: flex;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+
 h1,
 h2,
 h3,
@@ -43,7 +48,7 @@ ul {
   font-weight: 700;
   line-height: 21px;
   letter-spacing: 0em;
-  
+
   color: var(--text);
   background-color: transparent;
 }

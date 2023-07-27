@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <Sprite />
-      <main className="main">
+      <main className="main overflow-hidden">
         <aside className="aside">
           {/* <!-- WEATHER ASIDE BEGIN --> */}
           <SidebarComponent />

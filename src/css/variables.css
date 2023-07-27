@@ -11,6 +11,7 @@
     --gray-text: var(--gray-text-light);
     --compass: var(--compass-light);
     --cross: var(--cross-light);
+    --search-list: var(--search-list-light);
 
     /* light theme colors */
     --text-light: rgba(72, 72, 74, 1);
@@ -25,6 +26,7 @@
     --gray-text-light: rgba(211, 211, 211, 1);
     --compass-light: rgba(72, 72, 74, 1);
     --cross-light: #48484A;
+    --search-list-light: rgba(230, 230, 230, 1);
 
     /* dark theme colors */
     --text-dark: rgba(230, 230, 230, 1);
@@ -38,5 +40,6 @@
     --card-color-dark: rgba(33, 35, 49, 1);
     --shadow-dark: transporent;
     --gray-text-dark: rgba(109, 109, 109, 1);
+    --search-list-dark: rgba(16, 14, 28, 1);
 
 }

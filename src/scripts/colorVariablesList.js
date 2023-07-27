@@ -10,5 +10,6 @@ export const themeVariables = [
     "--card-color",
     "--shadow",
     "--gray-text",
+    "--search-list",
 ];
 
