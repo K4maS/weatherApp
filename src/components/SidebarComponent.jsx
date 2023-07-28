@@ -13,6 +13,7 @@ import {
 import SearchList from "../modules/SearchList";
 import LoadingModule from "../modules/LoadingModule";
 import NotFoundModule from "../modules/NotFoundModule";
+import { inputValidation } from "../scripts/inputValidation";
 
 function SidebarComponent() {
   const dispatch = useDispatch();
@@ -64,7 +65,13 @@ function SidebarComponent() {
             className="input weather-aside__search-input"
             value={getCityName}
             onInput={(e) => {
-              dispatch(changeCurrentCity(e.target.value));
+              const allowedSymbol = inputValidation(e);
+              if (allowedSymbol) {
+                dispatch(changeCurrentCity(e.target.value));
+              }
+              else {
+                e.preventDefault();
+              }
             }}
           ></input>
           <button className="btn btn-reset weather-aside__search-btn">

@@ -16,6 +16,7 @@ export function* getCityDataWatcher(payload) {
         yield put(changeCurrentCityData(data.data))
         yield put(changeCurrentCity(''))
         yield put(updateSearchBlockIsActive(false));
+        
     }
     catch (er) {
         console.log(er)
@@ -105,3 +106,4 @@ export const {
     addCitiesList,
     changeTheme,
 } = toolkitSlice.actions;
+
