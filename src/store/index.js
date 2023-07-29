@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import toolkitSlice, { GET_CITY, getCityDataWatcher } from './slice';
+import toolkitSlice, { GET_CITY, GET_WEATHER, getCityDataWatcher, getCityWeatherWatcher } from './slice';
 import { takeEvery } from 'redux-saga/effects';
 import createSagaMiddlewaer from 'redux-saga';
 
@@ -7,6 +7,7 @@ const sagaMiddleware = createSagaMiddlewaer();
 
 function* sagas() {
     yield takeEvery(GET_CITY, getCityDataWatcher)
+    yield takeEvery(GET_WEATHER, getCityWeatherWatcher)
 }
 
 const rootReducer = combineReducers({

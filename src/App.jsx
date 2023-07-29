@@ -17,6 +17,7 @@ function App() {
   const dataLoaded = useSelector((state) => state.toolkit.dataLoaded);
   const getCityName = useSelector((state) => state.toolkit.currentCity);
 
+
   // Загрузка данных при загрузке приложения
   if (!dataLoaded) {
     // Извлечение значения темы из локал сторадж

@@ -1,10 +1,16 @@
-function loadingModule() {
+import '../css/loadingModule.css';
 
-    return (
-        <div className="weather-aside__warning">
-            <p>Загрузка...</p>
-        </div>
-    );
+function loadingModule() {
+  return (
+    <div className="weather-aside__warning">
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  );
 }
 
 export default loadingModule;
