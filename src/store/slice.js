@@ -15,8 +15,14 @@ export function* getCityDataWatcher(payload) {
         const data = yield call(fetchCityDataApi, payload.getCityName);
         yield put(changeCurrentCityData(data.data))
         yield put(changeCurrentCity(''))
-        yield put(updateSearchBlockIsActive(false));
-        
+        if (data.data.length > 0) {
+            yield put(updateSearchBlockIsActive(false));
+            yield put(updateCityExists(true));
+        }
+        else {
+            yield put(updateCityExists(false));
+        }
+
     }
     catch (er) {
         console.log(er)
@@ -38,6 +44,7 @@ const toolkitSlice = createSlice({
         dataLoaded: false,
         searchBlockIsActive: false,
         darkTheme: false,
+        cityExists: true,
     },
     reducers: {
         // Получение из ари гео данных города
@@ -46,8 +53,32 @@ const toolkitSlice = createSlice({
             localStorage.setItem('darkTheme', JSON.stringify(action.payload));
         },
         // Получение из ари гео данных города
+        updateCityExists(state, action) {
+            state.cityExists = action.payload;
+        },
+        // Получение из апи гео данных города и добавление города в список
         changeCurrentCityData(state, action) {
-            state.currentCityData = action.payload;
+            if (action.payload.length > 0) {
+                state.currentCityData = action.payload;
+                const cityName = action.payload[0].display_name.split(',')[0];
+                if (state.citiesList.length === 0) {
+                    state.citiesList = [cityName]
+                }
+                else {
+                    if (!state.citiesList.includes(cityName)) {
+                        if (state.citiesList.length > 10) {
+                            state.citiesList.shift()
+                        }
+                        state.citiesList.push(cityName);
+                    }
+                }
+                localStorage.setItem('citiesList', JSON.stringify(state.citiesList));
+            }
+
+        },
+        // Изменение статуса сообщения
+        changeNotCityMessage(state, action) {
+            state.notCityMessage = action.payload;
         },
         // Ввод названия города
         changeCurrentCity(state, action) {
@@ -56,23 +87,6 @@ const toolkitSlice = createSlice({
         // Добавление города в список поиска
         addCitiesList(state, action) {
             state.citiesList = action.payload
-        },
-        // Добавление города в список поиска
-        changeCitiesList(state, action) {
-            if (state.citiesList.length === 0) {
-                state.citiesList = [action.payload]
-            }
-            else {
-                if (!state.citiesList.includes(action.payload)) {
-
-                    if (state.citiesList.length > 4) {
-                        state.citiesList.shift()
-                    }
-                    state.citiesList.push(action.payload);
-
-                }
-            }
-            localStorage.setItem('citiesList', JSON.stringify(state.citiesList));
         },
         // Изменение статуса загрузки
         updateLoadingPocess(state, action) {
@@ -105,5 +119,6 @@ export const {
     updateSearchBlockIsActive,
     addCitiesList,
     changeTheme,
+    updateCityExists,
 } = toolkitSlice.actions;
 

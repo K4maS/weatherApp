@@ -5,21 +5,22 @@ import { themeChanger } from "../scripts/themeSwitcher.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GET_CITY,
-  changeCitiesList,
   changeCurrentCity,
   changeTheme,
   updateSearchBlockIsActive,
 } from "../store/slice";
 import SearchList from "../modules/SearchList";
 import LoadingModule from "../modules/LoadingModule";
-import NotFoundModule from "../modules/NotFoundModule";
+import ErrorModule from "../modules/ErrorModule";
 import { inputValidation } from "../scripts/inputValidation";
+import CityNotFound from "../modules/CityNotFound";
 
 function SidebarComponent() {
   const dispatch = useDispatch();
   const getCityName = useSelector((state) => state.toolkit.currentCity);
   const getCityData = useSelector((state) => state.toolkit.currentCityData);
   const getCitiesList = useSelector((state) => state.toolkit.citiesList);
+  const getCitiesExists = useSelector((state) => state.toolkit.cityExists);
   const getLoadingProcess = useSelector(
     (state) => state.toolkit.loadingProcess
   );
@@ -45,10 +46,12 @@ function SidebarComponent() {
             e.preventDefault();
             if (getCityName) {
               getCity(getCityName);
-              dispatch(changeCitiesList(getCityName));
+              // dispatch(changeCitiesList(getCityName));
             }
           }}
         >
+          {!getCitiesExists && <CityNotFound />}
+
           <button
             className="btn btn-reset weather-aside__close-btn weather-search-block-close-btn"
             onClick={() => {
@@ -68,8 +71,7 @@ function SidebarComponent() {
               const allowedSymbol = inputValidation(e);
               if (allowedSymbol) {
                 dispatch(changeCurrentCity(e.target.value));
-              }
-              else {
+              } else {
                 e.preventDefault();
               }
             }}
@@ -111,7 +113,7 @@ function SidebarComponent() {
         <WeatherAsideMainBlock />
       ) : (
         <div className="weather-aside__warning-block">
-          {getLoadingProcess === true ? <LoadingModule /> : <NotFoundModule />}
+          {getLoadingProcess === true ? <LoadingModule /> : <ErrorModule />}
         </div>
       )}
     </div>

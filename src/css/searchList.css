@@ -33,4 +33,5 @@
     background-image: url('../assets/img/svg/search-list-arrow.svg');
     background-position: 95% center;
     background-repeat: no-repeat;
+    word-break: break-all;
 }

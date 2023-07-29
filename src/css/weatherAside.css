@@ -79,7 +79,15 @@
 }
 
 
-
+.weather-aside__search-warning  {
+    position: absolute;
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+    font-size: 12px;
+}
 
 .weather-aside__search-input {
     padding-left: 44px;
