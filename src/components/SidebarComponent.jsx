@@ -30,6 +30,11 @@ function SidebarComponent() {
   );
   const darkTheme = useSelector((state) => state.toolkit.darkTheme);
 
+  const day = {
+    dayOfTheWeek: new Date().getDay(),
+    date: new Date().getDate(),
+    month: new Date().getMonth(),
+  };
   const getCity = () => {
     dispatch({ type: GET_CITY, getCityName });
   };
@@ -110,7 +115,7 @@ function SidebarComponent() {
       {(getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}") >
         0 && <img src={snowflake} alt="" className="weather-aside__img"></img>}
       {getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}" ? (
-        <WeatherAsideMainBlock weather={getCityWeather} city={getCityData[0]}/>
+        <WeatherAsideMainBlock weather={getCityWeather} city={getCityData[0]} />
       ) : (
         <div className="weather-aside__warning-block">
           {!getLoadingError ? <LoadingModule /> : <ErrorModule />}

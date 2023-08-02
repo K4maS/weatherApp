@@ -1,9 +1,19 @@
+import { useSelector } from "react-redux";
 import "../css/weatherAside.css";
+import {
+  dayOfTheWeekFormatter,
+  monthFormatter,
+} from "../scripts/dateFormatter";
 
 function WeatherAsideMainBlock(props) {
   const weather = props.weather;
   const city = props.city;
-
+  const { dayOfTheWeek, date, month } = useSelector(
+    (state) => state.toolkit.today
+  );
+  const formattedDate = ` ${dayOfTheWeekFormatter(
+    dayOfTheWeek
+  )}, ${date} ${monthFormatter(month).slice(0, 3)}`;
   return (
     <div className="weather-aside__main-block">
       <div className="weather-aside__state">
@@ -26,7 +36,7 @@ function WeatherAsideMainBlock(props) {
             Сегодня
           </span>
           <span className="weather-aside__aside-date weather-aside__gray-text">
-            Вс, 13 мар
+            {formattedDate}
           </span>
         </div>
       </div>

@@ -71,6 +71,11 @@ const toolkitSlice = createSlice({
         searchBlockIsActive: false,
         darkTheme: false,
         cityExists: true,
+        today: {
+            dayOfTheWeek: new Date().getDay(),
+            date: new Date().getDate(),
+            month: new Date().getMonth() + 1,
+        }
     },
     reducers: {
         // Получение из ари гео данных города
@@ -91,12 +96,16 @@ const toolkitSlice = createSlice({
                     state.citiesList = [cityName]
                 }
                 else {
-                    if (!state.citiesList.includes(cityName)) {
-                        if (state.citiesList.length > 10) {
-                            state.citiesList.shift()
-                        }
-                        state.citiesList.push(cityName);
+                    if (state.citiesList.length > 10) {
+                        state.citiesList.shift();
                     }
+                    if (state.citiesList.includes(cityName)) {
+                        const indexToDelete = state.citiesList.indexOf(cityName);
+                        state.citiesList.splice(indexToDelete, 1);
+                        console.log(indexToDelete)
+                    }
+                    state.citiesList.push(cityName);
+
                 }
                 localStorage.setItem('citiesList', JSON.stringify(state.citiesList));
             }
