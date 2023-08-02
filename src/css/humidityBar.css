@@ -1,0 +1,42 @@
+@import url('variables.css');
+
+.card__humidity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 25px;
+    margin-bottom: 10px;
+}
+
+.card__humidity-numbbers {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__humidity-bar {
+    height: 11px;
+    width: 100%;
+    background-color: var(--humidity-bar);
+    border-radius: 10px;
+}
+
+.card__humidity-bar-meter-reading {
+    height: 100%;
+    background-color: var(--humidity-bar-meter-reading);
+    border-radius: 10px;
+}
+
+.card__humidity-percent,
+.card__humidity-number {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.card__humidity-percent {
+    align-self: flex-end;
+}

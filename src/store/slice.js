@@ -48,7 +48,7 @@ export function* getCityWeatherWatcher(payload) {
         console.log(lat, lon);
         const weatherData = yield call(fetchWeatherDataApi, lat, lon, WEATHER_API_KEY);
         yield put(updateCurrentCityWeather(weatherData.data));
-      }
+    }
     catch (er) {
         console.log(er)
         yield put(updateLoadingError(true));
@@ -62,7 +62,7 @@ const toolkitSlice = createSlice({
     name: "toolkit",
     initialState: {
         currentCityData: [],
-        currentCityWeather: [],
+        currentCityWeather: {},
         currentCity: 'Москва',
         citiesList: [],
         loadingProcess: false,
@@ -106,7 +106,7 @@ const toolkitSlice = createSlice({
         updateCurrentCityWeather(state, action) {
             state.currentCityWeather = action.payload;
             console.log('погода', action.payload);
-          
+
         },
         // Изменение статуса сообщения
         changeNotCityMessage(state, action) {

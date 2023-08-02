@@ -7,10 +7,10 @@ function SelectCard(props) {
   let elementImg;
 
   const data = props.cardContent;
-  const [date, element, actulaTemperature, feelsAsTemperature] = [
+  const [date, element, actualTemperature, feelsAsTemperature] = [
     data.date,
     data.element,
-    data.actulaTemperature,
+    data.actualTemperature,
     data.feelsAsTemperature,
   ];
 
@@ -29,7 +29,7 @@ function SelectCard(props) {
           <p className="card__time">{date}</p>
           <img src={elementImg} alt="" className="card__element-img"></img>
           <p className="card__temperature">
-            <span className="card__acurate-temp">{actulaTemperature}</span>
+            <span className="card__acurate-temp">{actualTemperature}</span>
             {feelsAsTemperature && (
               <span className="card__feeling-of-temp">{feelsAsTemperature}</span>
             )}

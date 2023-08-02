@@ -11,5 +11,6 @@ export const themeVariables = [
     "--shadow",
     "--gray-text",
     "--search-list",
+    "--humidity-bar",
 ];
 

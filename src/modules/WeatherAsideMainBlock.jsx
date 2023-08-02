@@ -1,22 +1,23 @@
-import { useSelector } from "react-redux";
 import "../css/weatherAside.css";
 
-function WeatherAsideMainBlock() {
-  const getCityData = useSelector((state) => state.toolkit.currentCityData);
-  const CurrentCity = getCityData[0];
-  
+function WeatherAsideMainBlock(props) {
+  const weather = props.weather;
+  const city = props.city;
+
   return (
     <div className="weather-aside__main-block">
       <div className="weather-aside__state">
         <p className="weather-aside__degrees">
-          1
+          {Math.round(weather.main.temp)}
           <span className="weather-aside__degree-symbol">
             <span>°</span>C
           </span>
         </p>
-        <p className="weather-aside__degrees-subtext-1">Снег</p>
+        <p className="weather-aside__degrees-subtext-1">
+          {weather.weather[0].description}
+        </p>
         <p className="weather-aside__degrees-subtext-2 weather-aside__gray-text ">
-          Ощущается как -3 °C
+          Ощущается как {Math.round(weather.main.feels_like)} °C
         </p>
       </div>
       <div className="weather-aside__bottom">
@@ -34,7 +35,7 @@ function WeatherAsideMainBlock() {
           <use xlinkHref="#baloon"> </use>
         </svg>
         <span className="weather-aside__location-name weather-aside__gray-text">
-          {CurrentCity.display_name.split(",")[0]}
+          {city.display_name.split(",")[0]}
         </span>
       </div>
     </div>

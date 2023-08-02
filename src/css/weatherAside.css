@@ -79,7 +79,7 @@
 }
 
 
-.weather-aside__search-warning  {
+.weather-aside__search-warning {
     position: absolute;
     top: 5px;
     display: flex;
@@ -234,8 +234,8 @@
     font-weight: 700;
     line-height: 36px;
     letter-spacing: 0em;
-    text-align: left;
-
+    text-align: center;
+    width: min-content;
 }
 
 .weather-aside__gray-text {

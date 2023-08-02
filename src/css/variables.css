@@ -12,6 +12,8 @@
     --compass: var(--compass-light);
     --cross: var(--cross-light);
     --search-list: var(--search-list-light);
+    --humidity-bar: var(--humidity-bar-light);
+    --humidity-bar-meter-reading: rgba(236, 110, 77, 1);
 
     /* light theme colors */
     --text-light: rgba(72, 72, 74, 1);
@@ -27,6 +29,7 @@
     --compass-light: rgba(72, 72, 74, 1);
     --cross-light: #48484A;
     --search-list-light: rgba(230, 230, 230, 1);
+    --humidity-bar-light: rgba(211, 211, 211, 1);
 
     /* dark theme colors */
     --text-dark: rgba(230, 230, 230, 1);
@@ -41,5 +44,5 @@
     --shadow-dark: transporent;
     --gray-text-dark: rgba(109, 109, 109, 1);
     --search-list-dark: rgba(16, 14, 28, 1);
-
+    --humidity-bar-dark: rgba(230, 230, 230, 1);
 }

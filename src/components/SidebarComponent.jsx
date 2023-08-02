@@ -19,11 +19,12 @@ function SidebarComponent() {
   const dispatch = useDispatch();
   const getCityName = useSelector((state) => state.toolkit.currentCity);
   const getCityData = useSelector((state) => state.toolkit.currentCityData);
+  const getCityWeather = useSelector(
+    (state) => state.toolkit.currentCityWeather
+  );
   const getCitiesList = useSelector((state) => state.toolkit.citiesList);
   const getCitiesExists = useSelector((state) => state.toolkit.cityExists);
-  const getLoadingProcess = useSelector(
-    (state) => state.toolkit.loadingProcess
-  );
+  const getLoadingError = useSelector((state) => state.toolkit.loadingError);
   const getSearchBlockIsActive = useSelector(
     (state) => state.toolkit.searchBlockIsActive
   );
@@ -106,14 +107,13 @@ function SidebarComponent() {
           ></input>
         </div>
       </div>
-      {getCityData.length > 0 && (
-        <img src={snowflake} alt="" className="weather-aside__img"></img>
-      )}
-      {getCityData.length > 0 ? (
-        <WeatherAsideMainBlock />
+      {(getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}") >
+        0 && <img src={snowflake} alt="" className="weather-aside__img"></img>}
+      {getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}" ? (
+        <WeatherAsideMainBlock weather={getCityWeather} city={getCityData[0]}/>
       ) : (
         <div className="weather-aside__warning-block">
-          {getLoadingProcess === true ? <LoadingModule /> : <ErrorModule />}
+          {!getLoadingError ? <LoadingModule /> : <ErrorModule />}
         </div>
       )}
     </div>
