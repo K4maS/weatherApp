@@ -19,9 +19,9 @@ export function* getCityDataWatcher(payload) {
         yield put(changeCurrentCityData(getCityData));
         yield put(changeCurrentCity(''))
         if (getCityData.length > 0) {
-            yield put(updateSearchBlockIsActive(false));
             yield put(updateCityExists(true));
             yield put({ type: GET_WEATHER, getCityData })
+            yield put(updateSearchBlockIsActive(false));
         }
         else {
             yield put(updateCityExists(false));

@@ -81,12 +81,18 @@
 
 .weather-aside__search-warning {
     position: absolute;
-    top: 5px;
+    top: -20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     color: red;
-    font-size: 12px;
+    font-size: 11px;
+    gap: 3px;
+}
+
+.weather-aside__search-input-label {
+    position: relative;
 }
 
 .weather-aside__search-input {

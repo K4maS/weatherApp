@@ -41,7 +41,7 @@ function MoreDetailedList(props) {
         <div className="item__card card">
           <h3 className="card__title">Давление</h3>
           <p className="card__indications">
-            <span className="card__indication-number">{weather.main.pressure}</span>
+            <span className="card__indication-number">{Math.round((weather.main.pressure)/1.333333)}</span>
             <span className="card__indication-long-symbol">мм.рт.ст.</span>
           </p>
         </div>

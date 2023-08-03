@@ -7,6 +7,7 @@ import {
   GET_CITY,
   changeCurrentCity,
   changeTheme,
+  updateCityExists,
   updateSearchBlockIsActive,
 } from "../store/slice";
 import SearchList from "../modules/SearchList";
@@ -30,11 +31,6 @@ function SidebarComponent() {
   );
   const darkTheme = useSelector((state) => state.toolkit.darkTheme);
 
-  const day = {
-    dayOfTheWeek: new Date().getDay(),
-    date: new Date().getDate(),
-    month: new Date().getMonth(),
-  };
   const getCity = () => {
     dispatch({ type: GET_CITY, getCityName });
   };
@@ -46,42 +42,48 @@ function SidebarComponent() {
           getSearchBlockIsActive ? "search-block--active" : ""
         }`}
       >
+        {" "}
+        <button
+          className="btn btn-reset weather-aside__close-btn weather-search-block-close-btn"
+          onClick={() => {
+            dispatch(updateSearchBlockIsActive(false));
+          }}
+        >
+          <svg>
+            <use xlinkHref="#cross"></use>
+          </svg>
+        </button>
         <form
           className="weather-aside__search-form"
           onSubmit={(e) => {
             e.preventDefault();
             if (getCityName) {
               getCity(getCityName);
-              // dispatch(changeCitiesList(getCityName));
             }
           }}
         >
-          {!getCitiesExists && <CityNotFound />}
-
-          <button
-            className="btn btn-reset weather-aside__close-btn weather-search-block-close-btn"
-            onClick={() => {
-              dispatch(updateSearchBlockIsActive(false));
-            }}
-          >
-            <svg>
-              <use xlinkHref="#cross"></use>
-            </svg>
-          </button>
-          <input
-            type="text"
-            placeholder="Найти город"
-            className="input weather-aside__search-input"
-            value={getCityName}
-            onInput={(e) => {
-              const allowedSymbol = inputValidation(e);
-              if (allowedSymbol) {
-                dispatch(changeCurrentCity(e.target.value));
-              } else {
-                e.preventDefault();
-              }
-            }}
-          ></input>
+          <label htmlFor="search" className="weather-aside__search-input-label">
+            {!getCitiesExists && <CityNotFound />}
+            <input
+              type="text"
+              name="search"
+              placeholder="Найти город"
+              className="input weather-aside__search-input"
+              value={getCityName}
+              onInput={(e) => {
+                dispatch(updateCityExists(true));
+                const allowedSymbol = inputValidation(e);
+                if (allowedSymbol) {
+                  dispatch(changeCurrentCity(e.target.value));
+                } else {
+                  e.preventDefault();
+                }
+                setTimeout(() => {
+                  dispatch(updateCityExists(true));
+                }, 5000);
+              }}
+            ></input>
+          </label>
           <button className="btn btn-reset weather-aside__search-btn">
             Найти
           </button>
@@ -91,7 +93,8 @@ function SidebarComponent() {
       <div className="weather-aside__search-activate-block">
         <button
           className="btn btn-reset weather-aside__search-btn  weather-search-activate-btn"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             dispatch(updateSearchBlockIsActive(true));
           }}
         >
