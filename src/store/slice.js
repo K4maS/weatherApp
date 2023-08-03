@@ -29,7 +29,6 @@ export function* getCityDataWatcher(payload) {
 
     }
     catch (er) {
-        console.log(er)
         yield put(updateLoadingError(true));
     }
     finally {
@@ -45,12 +44,10 @@ export function* getCityWeatherWatcher(payload) {
     yield put(updateLoadingPocess(true));
     yield put(updateLoadingError(false));
     try {
-        console.log(lat, lon);
         const weatherData = yield call(fetchWeatherDataApi, lat, lon, WEATHER_API_KEY);
         yield put(updateCurrentCityWeather(weatherData.data));
     }
     catch (er) {
-        console.log(er)
         yield put(updateLoadingError(true));
     }
     finally {
@@ -102,7 +99,6 @@ const toolkitSlice = createSlice({
                     if (state.citiesList.includes(cityName)) {
                         const indexToDelete = state.citiesList.indexOf(cityName);
                         state.citiesList.splice(indexToDelete, 1);
-                        console.log(indexToDelete)
                     }
                     state.citiesList.push(cityName);
 
@@ -114,8 +110,6 @@ const toolkitSlice = createSlice({
         // Изменение данных о погоде
         updateCurrentCityWeather(state, action) {
             state.currentCityWeather = action.payload;
-            console.log('погода', action.payload);
-
         },
         // Изменение статуса сообщения
         changeNotCityMessage(state, action) {
