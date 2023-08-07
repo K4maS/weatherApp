@@ -31,6 +31,8 @@ export function monthFormatter(monthNumber) {
 
 export function dayOfTheWeekFormatter(dayOfTheWeekNumber) {
     switch (dayOfTheWeekNumber) {
+        case 0:
+            return 'Вс';
         case 1:
             return 'Пн'
         case 2:
@@ -43,8 +45,6 @@ export function dayOfTheWeekFormatter(dayOfTheWeekNumber) {
             return 'Пт';
         case 6:
             return 'Сб';
-        case 7:
-            return 'Вс';
         default:
             return 'error';
     }

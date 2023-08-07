@@ -1,12 +1,14 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
 import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
-import { GEO_URL, WEATHER_API_KEY, WEATHER_URL } from "../api/urls";
+import { GEO_URL, WEATHER_API_KEY,  WEATHER_URL } from "../api/urls";
 
 // Запрос для получения данных о городе
 const fetchCityDataApi = (query) => axios.get(GEO_URL + `/search.php?q=${query}&format=json&addressdetails=1&limit=1`);
 // Запрос для получения данных о погода по координатам
-const fetchWeatherDataApi = (lat, lon, key) => axios.get(WEATHER_URL + `?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=ru`);
+const fetchWeatherDataApi = (lat, lon, key) => axios.get(WEATHER_URL + `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=ru`);
+// Запрос для получения данных о погода по координатам
+const fetchWeatherDataPerTreeHoursApi = (lat, lon, key) => axios.get(WEATHER_URL + `/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=ru`);
 
 
 // Сага вотчер для данных о городе
@@ -45,7 +47,18 @@ export function* getCityWeatherWatcher(payload) {
     yield put(updateLoadingError(false));
     try {
         const weatherData = yield call(fetchWeatherDataApi, lat, lon, WEATHER_API_KEY);
+        const weatherDataForDays = yield call(fetchWeatherDataPerTreeHoursApi, lat, lon, WEATHER_API_KEY);
+        const forDaysDataList = weatherDataForDays.data.list;
+        const dataEveryTreeHours = forDaysDataList.splice(0,5);
+        const dataEveryDays = forDaysDataList.filter((elem) => elem.dt_txt.includes("12:00"));
+
+       
         yield put(updateCurrentCityWeather(weatherData.data));
+        yield put(updateCurrentCityWeatherHourly(dataEveryTreeHours));
+        yield put(updateCurrentCityWeatherForWeek(dataEveryDays));
+
+     
+
     }
     catch (er) {
         yield put(updateLoadingError(true));
@@ -60,6 +73,8 @@ const toolkitSlice = createSlice({
     initialState: {
         currentCityData: [],
         currentCityWeather: {},
+        currentCityWeatherHourly: {},
+        currentCityWeatherForWeek: {},
         currentCity: 'Москва',
         citiesList: [],
         loadingProcess: false,
@@ -110,6 +125,14 @@ const toolkitSlice = createSlice({
         // Изменение данных о погоде
         updateCurrentCityWeather(state, action) {
             state.currentCityWeather = action.payload;
+        },  
+        // Изменение данных о погоде каждые три часа
+        updateCurrentCityWeatherHourly(state, action) {
+            state.currentCityWeatherHourly = action.payload;
+        }, 
+         // Изменение данных о погоде на 5 дней
+        updateCurrentCityWeatherForWeek(state, action) {
+            state.currentCityWeatherForWeek = action.payload;
         },
         // Изменение статуса сообщения
         changeNotCityMessage(state, action) {
@@ -158,5 +181,7 @@ export const {
     changeTheme,
     updateCityExists,
     updateCurrentCityWeather,
+    updateCurrentCityWeatherHourly,
+    updateCurrentCityWeatherForWeek,
 } = toolkitSlice.actions;
 
