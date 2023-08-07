@@ -42,7 +42,6 @@ function SidebarComponent() {
           getSearchBlockIsActive ? "search-block--active" : ""
         }`}
       >
-        {" "}
         <button
           className="btn btn-reset weather-aside__close-btn weather-search-block-close-btn"
           onClick={() => {

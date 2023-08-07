@@ -38,7 +38,7 @@ function SelectBlock() {
             <li className="weather-select__item item ">
               <button
                 className={`btn-reset item__gap-btn btn-for-week ${
-                  list === hourlyList || JSON.stringify(list) == "{}"
+                  list !== weekList 
                     ? "item__gap-btn--active"
                     : ""
                 } `}
