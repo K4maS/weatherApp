@@ -29,7 +29,6 @@ function SelectBlock() {
                 } `}
                 onClick={() => {
                   setList(weekList);
-                  setCurrentElem(1);
                 }}
               >
                 На неделю
@@ -38,13 +37,10 @@ function SelectBlock() {
             <li className="weather-select__item item ">
               <button
                 className={`btn-reset item__gap-btn btn-for-week ${
-                  list !== weekList 
-                    ? "item__gap-btn--active"
-                    : ""
+                  list !== weekList ? "item__gap-btn--active" : ""
                 } `}
                 onClick={() => {
                   setList(hourlyList);
-                  setCurrentElem(1);
                 }}
               >
                 Почасовой
@@ -72,6 +68,7 @@ function SelectBlock() {
                     cardContent={elem}
                     cardType={"week"}
                     key={elem.dt_txt}
+                    weekList={weekList}
                   />
                 ))
               : hourlyList.map((elem) => (

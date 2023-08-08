@@ -10,13 +10,16 @@ function SelectCard(props) {
   let elementImg;
   const data = props.cardContent;
   const cardType = props.cardType;
+  const weekList = props.weekList;
   const dateSlicedList = data.dt_txt.slice(0, 10).split("-");
-
   const dateList = [dateSlicedList[2], dateSlicedList[1]];
   const dayOfTheWeek = new Date(data.dt_txt).getDay();
-  const formettedDate = `${dayOfTheWeekFormatter(dayOfTheWeek)}, ${
+  let formettedDate = `${dayOfTheWeekFormatter(dayOfTheWeek)}, ${
     dateList[0]
   } ${monthFormatter(Number(dateList[`0`])).slice(0, 3)}`;
+  if (cardType === "week" && weekList[0] === data) {
+    formettedDate = "Завтра";
+  }
   const [date, element, actualTemperature, feelsAsTemperature] = [
     cardType === "week" ? formettedDate : data.dt_txt.slice(10, 16),
     "storm",
