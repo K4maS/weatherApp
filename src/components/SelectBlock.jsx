@@ -12,7 +12,8 @@ function SelectBlock() {
   const weekList = useSelector(
     (state) => state.toolkit.currentCityWeatherForWeek
   );
-  const [list, setList] = useState(hourlyList);
+
+  const [list, setList] = useState(weekList);
   const [CurrentElem, setCurrentElem] = useState(1);
 
   return (
@@ -24,7 +25,7 @@ function SelectBlock() {
             <li className="weather-select__item item">
               <button
                 className={`btn-reset item__gap-btn btn-for-week ${
-                  list === weekList ? "item__gap-btn--active" : ""
+                  list !== hourlyList ? "item__gap-btn--active" : ""
                 } `}
                 onClick={() => {
                   setList(weekList);
@@ -36,7 +37,7 @@ function SelectBlock() {
             <li className="weather-select__item item ">
               <button
                 className={`btn-reset item__gap-btn btn-for-week ${
-                  list !== weekList ? "item__gap-btn--active" : ""
+                  list === hourlyList ? "item__gap-btn--active" : ""
                 } `}
                 onClick={() => {
                   setList(hourlyList);
@@ -61,7 +62,7 @@ function SelectBlock() {
         ></button>
         {JSON.stringify(weekList) !== "{}" ? (
           <ul className="weather-select__slider-list list-for-day list-active">
-            {list === weekList
+            {list !== hourlyList
               ? weekList.map((elem) => (
                   <SelectCard
                     cardContent={elem}

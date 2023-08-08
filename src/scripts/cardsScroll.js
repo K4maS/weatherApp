@@ -5,13 +5,13 @@ export function cardsScroll(point, elementsList, currentElem) {
     let stepWidth = 124;
     console.log('лист' + main, elementsList.length, currentElem);
 
-    if (point === 'right') { stepWidth = stepWidth * (-1) };
+    if (point === 'left') { stepWidth = stepWidth * (-1) };
     list.scrollBy(stepWidth, 0);
 }
 
 export function adaptiveSlider() {
     if (window.innerWidth > 1390) {
-        return 5;
+        return 4;
     }
     if (window.innerWidth > 1196) {
         return 4;

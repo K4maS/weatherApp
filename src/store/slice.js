@@ -1,7 +1,8 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
 import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
-import { GEO_URL, WEATHER_API_KEY,  WEATHER_URL } from "../api/urls";
+import { GEO_URL, WEATHER_API_KEY, WEATHER_URL } from "../api/urls";
+import { today } from "./dates";
 
 // Запрос для получения данных о городе
 const fetchCityDataApi = (query) => axios.get(GEO_URL + `/search.php?q=${query}&format=json&addressdetails=1&limit=1`);
@@ -42,22 +43,25 @@ export function* getCityDataWatcher(payload) {
 export function* getCityWeatherWatcher(payload) {
     const data = payload.getCityData[0];
     const [lat, lon] = [data.lat, data.lon];
-
+    const todayFormatteed = `${String(today.month).length === 1 ? "0" + String(today.month) : today.month}-${String(today.date).length === 1 ? "0" + String(today.date) : today.date}`;
     yield put(updateLoadingPocess(true));
     yield put(updateLoadingError(false));
     try {
+
         const weatherData = yield call(fetchWeatherDataApi, lat, lon, WEATHER_API_KEY);
         const weatherDataForDays = yield call(fetchWeatherDataPerTreeHoursApi, lat, lon, WEATHER_API_KEY);
         const forDaysDataList = weatherDataForDays.data.list;
-        const dataEveryTreeHours = forDaysDataList.splice(0,5);
+        console.log(todayFormatteed)
+        const dataEveryTreeHours = forDaysDataList.filter((elem) => elem.dt_txt.includes(todayFormatteed));
+
         const dataEveryDays = forDaysDataList.filter((elem) => elem.dt_txt.includes("12:00"));
 
-       
+
         yield put(updateCurrentCityWeather(weatherData.data));
         yield put(updateCurrentCityWeatherHourly(dataEveryTreeHours));
         yield put(updateCurrentCityWeatherForWeek(dataEveryDays));
 
-     
+
 
     }
     catch (er) {
@@ -83,11 +87,7 @@ const toolkitSlice = createSlice({
         searchBlockIsActive: false,
         darkTheme: false,
         cityExists: true,
-        today: {
-            dayOfTheWeek: new Date().getDay(),
-            date: new Date().getDate(),
-            month: new Date().getMonth() + 1,
-        }
+        today,
     },
     reducers: {
         // Получение из ари гео данных города
@@ -125,12 +125,12 @@ const toolkitSlice = createSlice({
         // Изменение данных о погоде
         updateCurrentCityWeather(state, action) {
             state.currentCityWeather = action.payload;
-        },  
+        },
         // Изменение данных о погоде каждые три часа
         updateCurrentCityWeatherHourly(state, action) {
             state.currentCityWeatherHourly = action.payload;
-        }, 
-         // Изменение данных о погоде на 5 дней
+        },
+        // Изменение данных о погоде на 5 дней
         updateCurrentCityWeatherForWeek(state, action) {
             state.currentCityWeatherForWeek = action.payload;
         },
