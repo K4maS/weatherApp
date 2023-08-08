@@ -12,8 +12,7 @@ function SelectBlock() {
   const weekList = useSelector(
     (state) => state.toolkit.currentCityWeatherForWeek
   );
-
-  const [list, setList] = useState(weekList);
+  const [list, setList] = useState(hourlyList);
   const [CurrentElem, setCurrentElem] = useState(1);
 
   return (
@@ -88,11 +87,12 @@ function SelectBlock() {
               ? "weather-select__slider-btn--disabled"
               : ""
           }`}
+          disabled={list.length <= CurrentElem + adaptiveSlider()}
           onClick={() => {
             setCurrentElem(CurrentElem + 1);
             cardsScroll("right", list, CurrentElem);
           }}
-          disabled={list.length <= CurrentElem + adaptiveSlider()}
+          
         ></button>
       </div>
     </article>

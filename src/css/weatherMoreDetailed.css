@@ -131,3 +131,10 @@
         gap: 45px;
     }
 }
+
+@media (max-width: 337px) {
+    .weather-more-detailed {
+        width: 270px;
+    }
+
+}

@@ -373,3 +373,12 @@
 
 
 }
+
+@media (max-width: 337px) {
+
+    .weather-aside__search-activate-block {
+        
+        width: 291px;
+    }
+
+}

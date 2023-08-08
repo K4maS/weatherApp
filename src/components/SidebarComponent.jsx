@@ -115,7 +115,9 @@ function SidebarComponent() {
         </div>
       </div>
       {(getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}") >
-        0 && <img src={snowflake} alt="" className="weather-aside__img"></img>}
+        0 && <img 
+        src={ `https://openweathermap.org/img/wn/${getCityWeather.weather[0].icon}@4x.png`}
+         alt="" className="weather-aside__img"></img>}
       {getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}" ? (
         <WeatherAsideMainBlock weather={getCityWeather} city={getCityData[0]} />
       ) : (
