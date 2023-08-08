@@ -1,5 +1,5 @@
 import "../css/weatherAside.css";
-import snowflake from "../assets/img/snowflake.webp";
+import wearherIcon from "../scripts/weatherIcon";
 import WeatherAsideMainBlock from "../modules/WeatherAsideMainBlock";
 import { themeChanger } from "../scripts/themeSwitcher.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -115,9 +115,13 @@ function SidebarComponent() {
         </div>
       </div>
       {(getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}") >
-        0 && <img 
-        src={ `https://openweathermap.org/img/wn/${getCityWeather.weather[0].icon}@4x.png`}
-         alt="" className="weather-aside__img"></img>}
+        0 && (
+        <img
+          src={wearherIcon(getCityWeather.weather[0].icon, 4)}
+          alt={getCityWeather.weather[0].icon}
+          className="weather-aside__img"
+        ></img>
+      )}
       {getCityData.length > 0 && JSON.stringify(getCityWeather) !== "{}" ? (
         <WeatherAsideMainBlock weather={getCityWeather} city={getCityData[0]} />
       ) : (

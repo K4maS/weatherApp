@@ -11,12 +11,17 @@ import {
   updateDataLoaded,
 } from "./store/slice";
 import { themeChanger } from "./scripts/themeSwitcher";
+import LoadingModule from "./modules/LoadingModule";
+import ErrorModule from "./modules/ErrorModule";
 
 function App() {
   const dispatch = useDispatch();
   const dataLoaded = useSelector((state) => state.toolkit.dataLoaded);
   const getCityName = useSelector((state) => state.toolkit.currentCity);
-
+  const getLoadingError = useSelector((state) => state.toolkit.loadingError);
+  const getCityWeather = useSelector(
+    (state) => state.toolkit.currentCityWeather
+  );
 
   // Загрузка данных при загрузке приложения
   if (!dataLoaded) {
@@ -48,14 +53,20 @@ function App() {
           {/* <!-- WEATHER ASIDE END --> */}
         </aside>
         <div className="weather">
-          <div className="container">
-            {/* <!-- WEATHER SELECT BEGIN --> */}
-            <SelectBlock />
-            {/* <!-- WEATHER SELECT END --> */}
-            {/* <!-- WEATHER MORE DETAILED BEGIN --> */}
-            <MoreDetailed />
-            {/* <!-- WEATHER MORE DETAILED END --> */}
-          </div>
+          {JSON.stringify(getCityWeather) != "{}" ? (
+            <div className="container">
+              {/* <!-- WEATHER SELECT BEGIN --> */}
+              <SelectBlock />
+              {/* <!-- WEATHER SELECT END --> */}
+              {/* <!-- WEATHER MORE DETAILED BEGIN --> */}
+              <MoreDetailed />
+              {/* <!-- WEATHER MORE DETAILED END --> */}
+            </div>
+          ) : (
+            <div className="weather-aside__warning-block">
+              {!getLoadingError ? <LoadingModule /> : <ErrorModule />}
+            </div>
+          )}
         </div>
       </main>
     </div>

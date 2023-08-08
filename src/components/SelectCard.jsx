@@ -2,9 +2,9 @@ import {
   monthFormatter,
   dayOfTheWeekFormatter,
 } from "../scripts/dateFormatter";
+import wearherIcon from "../scripts/weatherIcon";
 
 function SelectCard(props) {
-  let elementImg;
   const data = props.cardContent;
   const cardType = props.cardType;
   const weekList = props.weekList;
@@ -19,15 +19,14 @@ function SelectCard(props) {
   }
   const [date, element, actualTemperature, feelsAsTemperature] = [
     cardType === "week" ? formettedDate : data.dt_txt.slice(10, 16),
-    `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+    wearherIcon(data.weather[0].icon),
     String(data.main.temp).split(".")[0],
     String(data.main.feels_like).split(".")[0],
   ];
 
-
   return (
     <li className="weather-select__item item">
-      <a href="" className="item__link" onClick={(e) => e.preventDefault()}>
+      <a href="#" className="item__link" onClick={(e) => e.preventDefault()}>
         <div className="item__card card">
           <p className="card__time">{date}</p>
           <img src={element} alt="" className="card__element-img"></img>

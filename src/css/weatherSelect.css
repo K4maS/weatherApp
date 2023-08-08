@@ -158,6 +158,7 @@
 
 .weather-select__slider-list .card__element-img {
     margin: -47px 0;
+    height: 100px;
 }
 
 .weather-select__slider-list .card__temperature {

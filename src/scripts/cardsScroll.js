@@ -11,7 +11,7 @@ export function cardsScroll(point, elementsList, currentElem) {
 
 export function adaptiveSlider() {
     if (window.innerWidth > 1390) {
-        return 4;
+        return 5;
     }
     if (window.innerWidth > 1196) {
         return 4;
