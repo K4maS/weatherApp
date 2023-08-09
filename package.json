@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://k4mas.github.io/weatherApp/",
   "eslintConfig": {
     "extends": [
       "react-app",
